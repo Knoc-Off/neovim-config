@@ -16,7 +16,7 @@
     luaLoader.enable = true;
 
     # Highlight and remove extra white spaces
-    highlight.ExtraWhitespace.bg = "#FFFFFF"; # TODO! ADD Nix-Colors
+    highlight.ExtraWhitespace.bg = "#393b3c"; # TODO! ADD Nix-Colors
     match.ExtraWhitespace = "\\s\\+$";
   };
 }

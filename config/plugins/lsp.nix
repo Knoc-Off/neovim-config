@@ -12,6 +12,7 @@
             "<leader>j" = "goto_next";
           };
 
+
           lspBuf = {
             gd = "definition";
             gD = "references";
