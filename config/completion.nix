@@ -1,9 +1,11 @@
 {
   config = {
-    options.completeopt = ["menu" "menuone" "noselect"];
+    options.completeopt = [ "menu" "menuone" "noselect" ];
 
     plugins = {
       luasnip.enable = true;
+
+      #coq-nvim.enable = true;
 
       lspkind = {
         enable = true;
@@ -14,7 +16,7 @@
         cmp = {
           enable = true;
           menu = {
-            nvim_lsp = "[LSP]";
+            #coq_nvim = "[coq_nvim]";
             nvim_lua = "[api]";
             path = "[path]";
             luasnip = "[snip]";
@@ -36,30 +38,34 @@
           "<C-Space>" = "cmp.mapping.complete()";
           "<C-e>" = "cmp.mapping.close()";
           "<Tab>" = {
-            modes = ["i" "s"];
+            modes = [ "i" "s" ];
             action = "cmp.mapping.select_next_item()";
           };
           "<S-Tab>" = {
-            modes = ["i" "s"];
+            modes = [ "i" "s" ];
             action = "cmp.mapping.select_prev_item()";
           };
           "<CR>" = "cmp.mapping.confirm({ select = true })";
         };
 
         sources = [
-          {name = "path";}
-          {name = "nvim_lsp";}
-          {name = "cmp_tabnine";}
-          #{name = "copilot"; } # {name = "nvim_lua";}
-          {name = "luasnip";}
+
+          #{ ncoq_nvim= "path"; }
+          { name = "path"; }
+          { name = "nvim_lsp"; }
+          { name = "cmp_tabnine"; }
+          #{name = "copilot"; }
+          { name = "nvim_lua"; }
+          { name = "luasnip"; }
           {
             name = "buffer";
             # Words from other open buffers can also be suggested.
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
           }
-          {name = "neorg";}
+          { name = "neorg"; }
         ];
       };
     };
   };
 }
+

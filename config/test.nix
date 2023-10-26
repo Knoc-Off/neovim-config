@@ -1,15 +1,17 @@
 {
   imports = [
-    ./autocommands.nix
     ./theme.nix
-    ./completion.nix
-    ./keymappings.nix
-    ./options.nix
-    ./plugins
-    ./todo.nix
+    #./autocommands.nix
+    #./completion.nix
+    #./keymappings.nix
+    #./options.nix
+    #./todo.nix
+
+    #./plugins/lsp.nix
+    #./plugins/extra.nix
+    ./plugins/lsp
   ];
 
-  # not shure where this belongs: probably in my home manager conf.
   config = {
     viAlias = true;
     vimAlias = true;

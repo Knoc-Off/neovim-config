@@ -1,8 +1,7 @@
 {
   config = {
     highlight.Todo = {
-      fg = "Yellow";
-      #bg = "Yellow";
+      fg = "#3f84ba";
     };
 
     match.TODO = "TODO";

@@ -21,23 +21,41 @@
       nixvimLib = nixvim.lib.${system};
       pkgs = import nixpkgs { inherit system; config = { allowUnfree = true; }; };
       nixvim' = nixvim.legacyPackages.${system};
-      nvim = nixvim'.makeNixvimWithModule {
+      default = nixvim'.makeNixvimWithModule {
         inherit pkgs;
-        module = config;
+        module = ./config/default.nix;
+      };
+      lite = nixvim'.makeNixvimWithModule {
+        inherit pkgs;
+        module = ./config/lite.nix;
+      };
+      test = nixvim'.makeNixvimWithModule {
+        inherit pkgs;
+        module = ./config/test.nix;
       };
     in
     {
       checks = {
         # Run `nix flake check .` to verify that your config is not broken
         default = nixvimLib.check.mkTestDerivationFromNvim {
-          inherit nvim;
+          inherit default;
+          name = "A nixvim configuration";
+        };
+        lite = nixvimLib.check.mkTestDerivationFromNvim {
+          inherit lite;
+          name = "A nixvim configuration";
+        };
+        test = nixvimLib.check.mkTestDerivationFromNvim {
+          inherit lite;
           name = "A nixvim configuration";
         };
       };
 
       packages = {
         # Lets you run `nix run .` to start nixvim
-        default = nvim;
+        default = default;
+        lite = lite;
+        test = test;
       };
     });
 }

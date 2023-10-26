@@ -1,5 +1,17 @@
 { pkgs, config, lib, ... }: {
   config = {
+    plugins = {
+      gitsigns = {
+        enable = true;
+        signs = {
+          add.text = "+";
+          change.text = "~";
+        };
+      };
+
+      nvim-autopairs.enable = true;
+    };
+
     extraPlugins = with pkgs.vimPlugins; [
       plenary-nvim
       nui-nvim

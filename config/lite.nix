@@ -1,12 +1,14 @@
 {
   imports = [
     ./autocommands.nix
-    ./theme.nix
     ./completion.nix
     ./keymappings.nix
     ./options.nix
-    ./plugins
     ./todo.nix
+    ./theme.nix
+
+    ./plugins/lsp.nix
+    ./plugins/extra.nix
   ];
 
   # not shure where this belongs: probably in my home manager conf.
