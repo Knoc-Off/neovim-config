@@ -28,16 +28,16 @@
         };
       })
 
-      #      (pkgs.vimUtils.buildVimPlugin rec {
-      #        pname = "copilot";
-      #        version = "e48bd7020a98be217d85c006a298656294fd6210";
-      #        src = pkgs.fetchFromGitHub {
-      #          owner = "zbirenbaum";
-      #          repo = "copilot.lua";
-      #          rev = version;
-      #          sha256 = "sha256-lD9FdbKKZ6d/BjIfqp0Ust2hqSYNLpCFWxuaKUO9qLs=";
-      #        };
-      #      })
+      (pkgs.vimUtils.buildVimPlugin rec {
+        pname = "copilot";
+        version = "e48bd7020a98be217d85c006a298656294fd6210";
+        src = pkgs.fetchFromGitHub {
+          owner = "zbirenbaum";
+          repo = "copilot.lua";
+          rev = version;
+          sha256 = "sha256-lD9FdbKKZ6d/BjIfqp0Ust2hqSYNLpCFWxuaKUO9qLs=";
+        };
+      })
 
       (pkgs.vimUtils.buildVimPlugin rec {
         pname = "CodeGpt";
@@ -101,39 +101,39 @@
         },
       })
 
+      require('copilot').setup({
+        panel = {
+          enabled = true,
+        },
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = "<M-l>",
+            accept_word = false,
+            accept_line = false,
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-]>",
+          },
+        },
+        filetypes = {
+          yaml = false,
+          markdown = false,
+          help = false,
+          gitcommit = false,
+          gitrebase = false,
+          hgcommit = false,
+          svn = false,
+          cvs = false,
+          ["."] = false,
+        },
+        copilot_node_command = 'node', -- Node.js version must be > 16.x
+        server_opts_overrides = {},
+      })
     '';
-    #
-    #      require('copilot').setup({
-    #        panel = {
-    #          enabled = true,
-    #        },
-    #        suggestion = {
-    #          enabled = true,
-    #          auto_trigger = true,
-    #          debounce = 75,
-    #          keymap = {
-    #            accept = "<M-l>",
-    #            accept_word = false,
-    #            accept_line = false,
-    #            next = "<M-]>",
-    #            prev = "<M-[>",
-    #            dismiss = "<C-]>",
-    #          },
-    #        },
-    #        filetypes = {
-    #          yaml = false,
-    #          markdown = false,
-    #          help = false,
-    #          gitcommit = false,
-    #          gitrebase = false,
-    #          hgcommit = false,
-    #          svn = false,
-    #          cvs = false,
-    #          ["."] = false,
-    #        },
-    #        copilot_node_command = 'node', -- Node.js version must be > 16.x
-    #        server_opts_overrides = {},
-    #      })
+
 
 
   };

@@ -54,7 +54,7 @@
           { name = "path"; }
           { name = "nvim_lsp"; }
           { name = "cmp_tabnine"; }
-          #{name = "copilot"; }
+          #{ name = "copilot"; }
           { name = "nvim_lua"; }
           { name = "luasnip"; }
           {
