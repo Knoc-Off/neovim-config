@@ -57,7 +57,6 @@
         default = default;
         lite = lite;
         test = test;
-        copilot = copilot;
       };
     });
 }
