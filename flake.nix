@@ -39,16 +39,17 @@
         # Run `nix flake check .` to verify that your config is not broken
         default = nixvimLib.check.mkTestDerivationFromNvim {
           inherit default;
-          name = "A nixvim configuration";
+          name = "default config";
         };
         lite = nixvimLib.check.mkTestDerivationFromNvim {
           inherit lite;
-          name = "A nixvim configuration";
+          name = "minimal";
         };
         test = nixvimLib.check.mkTestDerivationFromNvim {
-          inherit lite;
-          name = "A nixvim configuration";
+          inherit test;
+          name = "test config";
         };
+
       };
 
       packages = {
@@ -56,6 +57,7 @@
         default = default;
         lite = lite;
         test = test;
+        copilot = copilot;
       };
     });
 }
