@@ -2,6 +2,7 @@
   imports = [
 
     ./extra.nix
+    ./markdown-preview.nix
 
     #./copilot.nix
     ./barbar.nix

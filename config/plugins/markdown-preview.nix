@@ -6,6 +6,8 @@
       autoClose = false;
 
       theme = "dark";
+
+      browser = "chromium";
     };
 
     keymaps = [

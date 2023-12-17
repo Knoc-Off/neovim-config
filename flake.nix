@@ -5,21 +5,29 @@
     nixvim.url = "github:nix-community/nixvim";
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
+
   };
 
   outputs =
     { nixpkgs
     , nixvim
     , flake-utils
+    , nixneovimplugins
     , ...
     } @ inputs:
-    let
-      config = import ./config; # import the module directly
-    in
     flake-utils.lib.eachDefaultSystem (system:
     let
       nixvimLib = nixvim.lib.${system};
-      pkgs = import nixpkgs { inherit system; config = { allowUnfree = true; }; };
+      # overlat nur over nixpkgs, so that we can use nur packages in our config
+      pkgs = import nixpkgs {
+        inherit system;
+        config = { allowUnfree = true; };
+        overlays = [ nixneovimplugins.overlays.default ];
+      };
+      #pkgs = import nixpkgs { inherit system; config = { allowUnfree = true; }; };
+
       nixvim' = nixvim.legacyPackages.${system};
       default = nixvim'.makeNixvimWithModule {
         inherit pkgs;
