@@ -11,6 +11,8 @@
 
   # not shure where this belongs: probably in my home manager conf.
   config = {
+    plugins.lsp.servers.rust-analyzer.installRustc = true;
+    plugins.lsp.servers.rust-analyzer.installCargo = true;
     viAlias = true;
     vimAlias = true;
 

@@ -1,6 +1,7 @@
 {
   config = {
     plugins = {
+
       lsp = {
         enable = true;
 
@@ -30,7 +31,11 @@
           lua-ls.enable = true;
           texlab.enable = true;
           rnix-lsp.enable = true;
-          rust-analyzer.enable = true;
+          rust-analyzer = {
+            enable = true;
+            installCargo = true;
+            installRustc = true;
+          };
         };
       };
     };
