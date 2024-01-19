@@ -9,7 +9,9 @@
     ./comment.nix
     ./floaterm.nix
     #./harpoon.nix # !TODO Broken
-    ./lsp.nix
+    ./lsp
+    ./none-ls
+
     ./lualine.nix
     ./markdown-preview.nix
     #./neorg.nix
