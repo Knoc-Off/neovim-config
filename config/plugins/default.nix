@@ -36,7 +36,7 @@
         };
       };
 
-      nvim-autopairs.enable = true;
+      #nvim-autopairs.enable = true;
 
       nvim-colorizer = {
         enable = true;
