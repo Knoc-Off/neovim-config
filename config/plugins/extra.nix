@@ -9,27 +9,41 @@
         };
       };
 
-      nvim-autopairs.enable = true;
+      nvim-autopairs.enable = false;
     };
 
     extraPlugins = with pkgs.vimExtraPlugins; [
       nvim-transparent
       plenary-nvim
       nui-nvim
-      nvim-surround
-      CodeGPT-nvim
+      #nvim-surround
+      #CodeGPT-nvim
+
       copilot-lua
 
+      onedarkpro-nvim
+
+
       (pkgs.vimUtils.buildVimPlugin rec {
-        pname = "darkplus";
-        version = "1826879d9cb14e5d93cd142d19f02b23840408a6";
+        pname = "vim-ai";
+        version = "819c1bb3c79080128a076aff03b16cfc1f4548c7";
         src = pkgs.fetchFromGitHub {
-          owner = "LunarVim";
-          repo = "darkplus.nvim";
+          owner = "madox2";
+          repo = "vim-ai";
           rev = version;
-          sha256 = "sha256-/e7PCA931t5j0dlvfZm04dQ7dvcCL/ek+BIe1zQj5p4=";
+          sha256 = "sha256-BZCrQkJzGKZQTvRR/ib6W9vFOSQXlo2nzEQ52jOmJDc=";
         };
       })
+#      (pkgs.vimUtils.buildVimPlugin rec {
+#        pname = "darkplus";
+#        version = "1826879d9cb14e5d93cd142d19f02b23840408a6";
+#        src = pkgs.fetchFromGitHub {
+#          owner = "LunarVim";
+#          repo = "darkplus.nvim";
+#          rev = version;
+#          sha256 = "sha256-/e7PCA931t5j0dlvfZm04dQ7dvcCL/ek+BIe1zQj5p4=";
+#        };
+#      })
     ];
     # ++ (with pkgs.vimExtraPlugins; [ nvim-transparent ]);
 
@@ -43,21 +57,6 @@
         },
         extra_groups = {}, -- table: additional groups that should be cleared
         exclude_groups = {}, -- table: groups you don't want to clear
-      })
-
-      require('nvim-surround').setup({
-        keymaps = {
-          insert = "<C-g>s",
-          insert_line = "<C-g>S",
-          normal = "ys",
-          normal_cur = "yss",
-          normal_line = "yS",
-          normal_cur_line = "ySS",
-          visual = "\"",
-          visual_line = "gS",
-          delete = "ds",
-          change = "cs",
-        },
       })
 
       require('copilot').setup({

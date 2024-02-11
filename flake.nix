@@ -6,7 +6,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
+    nixneovimplugins.url = "github:NixNeovim/nixpkgs-vim-extra-plugins";
 
   };
 
