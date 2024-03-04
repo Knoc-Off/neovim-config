@@ -10,9 +10,9 @@
       lspkind = {
         enable = true;
 
-        symbolMap = {
-          Copilot = "";
-        };
+        #symbolMap = {
+        #  Copilot = "";
+        #};
         cmp = {
           enable = true;
           menu = {

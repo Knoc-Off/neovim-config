@@ -2,9 +2,9 @@
   imports = [
 
     ./extra.nix
+    ./vim-ai.nix
     ./markdown-preview.nix
 
-    #./copilot.nix
     ./barbar.nix
     ./comment.nix
     ./floaterm.nix
