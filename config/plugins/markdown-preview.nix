@@ -1,13 +1,17 @@
+{ pkgs, ... }:
 {
   config = {
     plugins.markdown-preview = {
       enable = true;
+      settings = {
 
-      autoClose = false;
 
-      theme = "dark";
+        autoClose = false;
 
-      browser = "chromium";
+        theme = "dark";
+
+        browser = "${pkgs.ephemeral}/bin/com.github.cassidyjames.ephemeral";
+      };
     };
 
     keymaps = [

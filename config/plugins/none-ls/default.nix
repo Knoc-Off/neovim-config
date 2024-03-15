@@ -5,7 +5,7 @@
     plugins.none-ls = {
       enable = true;
 
-      sources.code_actions.shellcheck.enable = true;
+      sources.formatting.mdformat.enable = true;
 
 
     };
