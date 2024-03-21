@@ -1,14 +1,17 @@
-{ pkgs, config, lib, ... }: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   config = {
     plugins = {
-      packer= {
+      packer = {
         enable = true;
         plugins = [
-          (x)
+          x
         ];
       };
-
     };
   };
 }
-

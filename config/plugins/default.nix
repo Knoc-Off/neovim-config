@@ -1,6 +1,5 @@
 {
   imports = [
-
     ./extra.nix
     ./vim-ai.nix
     ./markdown-preview.nix
@@ -24,7 +23,6 @@
   ];
 
   config = {
-
     colorschemes.gruvbox.enable = true;
 
     plugins = {

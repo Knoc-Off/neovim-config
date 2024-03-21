@@ -1,12 +1,12 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   config = {
+    plugins.mkdnflow= {
+      enable = true;
+    };
     plugins.markdown-preview = {
       enable = true;
       settings = {
-
-
-        autoClose = false;
+        autoClose = true;
 
         theme = "dark";
 

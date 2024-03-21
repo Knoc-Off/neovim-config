@@ -7,24 +7,22 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixneovimplugins.url = "github:NixNeovim/nixpkgs-vim-extra-plugins";
-
   };
 
-  outputs =
-    { nixpkgs
-    , nixvim
-    , flake-utils
-    , nixneovimplugins
-    , ...
-    } @ inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-    let
+  outputs = {
+    nixpkgs,
+    nixvim,
+    flake-utils,
+    nixneovimplugins,
+    ...
+  } @ inputs:
+    flake-utils.lib.eachDefaultSystem (system: let
       nixvimLib = nixvim.lib.${system};
       # overlat nur over nixpkgs, so that we can use nur packages in our config
       pkgs = import nixpkgs {
         inherit system;
-        config = { allowUnfree = true; };
-        overlays = [ nixneovimplugins.overlays.default ];
+        config = {allowUnfree = true;};
+        overlays = [nixneovimplugins.overlays.default];
       };
       #pkgs = import nixpkgs { inherit system; config = { allowUnfree = true; }; };
 
@@ -41,8 +39,7 @@
         inherit pkgs;
         module = ./config/test.nix;
       };
-    in
-    {
+    in {
       checks = {
         # Run `nix flake check .` to verify that your config is not broken
         default = nixvimLib.check.mkTestDerivationFromNvim {
@@ -57,7 +54,6 @@
           inherit test;
           name = "test config";
         };
-
       };
 
       packages = {

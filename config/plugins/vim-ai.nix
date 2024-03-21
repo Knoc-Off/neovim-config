@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   config = {
     extraPlugins = with pkgs.vimExtraPlugins; [
       (pkgs.vimUtils.buildVimPlugin rec {
@@ -12,7 +17,6 @@
         };
       })
     ];
-
 
     extraConfigVim = ''
       let g:vim_ai_edit = {

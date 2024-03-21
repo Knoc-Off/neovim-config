@@ -1,7 +1,6 @@
 {
   config = {
     plugins = {
-
       lsp = {
         enable = true;
 
@@ -12,7 +11,6 @@
             "<leader>k" = "goto_prev";
             "<leader>j" = "goto_next";
           };
-
 
           lspBuf = {
             gd = "definition";
@@ -30,11 +28,14 @@
           nil_ls.enable = true;
           lua-ls.enable = true;
           texlab.enable = true;
-          rnix-lsp.enable = true;
           rust-analyzer = {
             enable = true;
             installCargo = true;
             installRustc = true;
+          };
+
+          ltex = {
+            enable = true;
           };
         };
       };

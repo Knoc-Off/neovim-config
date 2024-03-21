@@ -16,13 +16,13 @@
     viAlias = true;
     vimAlias = true;
 
-#   plugins.dap.enable = true;
-#   plugins.dap.configurations.c = [ {
-#     name = "C/C++";
-#     request = "launch";
-#     type = "cpp"; # for clangd you can use "c" or "cpp"
-#
-#   }];
+    #   plugins.dap.enable = true;
+    #   plugins.dap.configurations.c = [ {
+    #     name = "C/C++";
+    #     request = "launch";
+    #     type = "cpp"; # for clangd you can use "c" or "cpp"
+    #
+    #   }];
 
     luaLoader.enable = true;
 

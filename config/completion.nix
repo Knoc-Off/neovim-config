@@ -1,6 +1,6 @@
 {
   config = {
-    options.completeopt = [ "menu" "menuone" "noselect" ];
+    options.completeopt = ["menu" "menuone" "noselect"];
 
     plugins = {
       luasnip.enable = true;
@@ -43,24 +43,22 @@
           };
 
           sources = [
-
             #{ ncoq_nvim= "path"; }
-            { name = "path"; }
-            { name = "nvim_lsp"; }
-            { name = "cmp_tabnine"; }
+            {name = "path";}
+            {name = "nvim_lsp";}
+            {name = "cmp_tabnine";}
             #{ name = "cmp_tabby"; }
             #{ name = "nvim_lua"; }
-            { name = "luasnip"; }
+            {name = "luasnip";}
             {
               name = "buffer";
               # Words from other open buffers can also be suggested.
               option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
             }
-            { name = "neorg"; }
+            {name = "neorg";}
           ];
         };
       };
     };
   };
 }
-
